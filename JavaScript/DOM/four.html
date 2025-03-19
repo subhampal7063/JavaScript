@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Four DOM</title>
+</head>
+<body style="background-color: black;color: wheat;">
+
+    <ul class="language">
+        <li>JavaScript</li>
+    </ul>
+
+</body>
+<script>
+
+    //Adding a List in a Unordered List
+    function addLanguage(languageName) {
+        const list = document.createElement("li");
+        list.innerHTML = `${languageName}`;
+        const ul = document.querySelector(".language");
+        ul.appendChild(list);
+    }
+    addLanguage("Java")
+    addLanguage("Python");
+
+    function addLanguageOptimalApproach(languageName){
+        const list = document.createElement("li");
+        const node = document.createTextNode(languageName);
+        list.appendChild(node);
+        const ul = document.querySelector(".language");
+        ul.appendChild(list);
+    }
+    addLanguageOptimalApproach("C++");
+
+    //Edit Element;
+
+   // const Unordered = document.querySelector(".language");
+    //const list = document.querySelector("li");
+   // list.innerHTML = "hello"
+
+  //  const nthLanguage = document.querySelector("li:nth-child(2)");
+  //  nthLanguage.innerHTML = "change Java"
+
+  // making it in a function
+  function editLanguage(languageName, position) {
+    const nthLanguage = document.querySelector(`li:nth-child(${position})`);
+    nthLanguage.innerHTML = `${languageName}`
+  }
+editLanguage("lauda", 3);
+
+//remove
+const last = document.querySelector("li:last-child")
+last.remove()
+
+</script>
+</html>
